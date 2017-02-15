@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+<h1>HOME OF THE BLOG</h1>
+
+
+<% blogs.forEach(function(blog){ %>
+    <div>
+        <h2><%= blog.title%></h2>
+        <img src="<%= blog.image%>">
+        <span><%= blog.created %></span>
+        <p><%= blog.body %></p>
+    </div>
+<% }) %>
+    <div class="archive">
+        <h1>ARCHIVE</h1>
+        <% blogs.forEach(function(blog){ %>
+        <ul>
+            <li><%=blog.title%></li>
+        </ul>
+    </div>
+<% }) %>
+<% include ./partials/footer %>
