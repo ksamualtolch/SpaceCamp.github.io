@@ -1,0 +1,12 @@
+body, html {
+	font-family: OCR A Std;
+	/*height: 100%;*/
+	margin: 0;
+	background: url("http://static.tumblr.com/wih8lae/lj6lnl5tp/zwwjr.gif");
+	background-position: fixed;
+	color: red;
+}
+
+.archive {
+    border: 1px solid blue;
+}
