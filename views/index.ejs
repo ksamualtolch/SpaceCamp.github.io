@@ -1,21 +1,71 @@
 <% include ./partials/header %>
-<h1>HOME OF THE BLOG</h1>
+<div class="ui container">
 
+<div class="ui stackable grid">
+  <div class="four wide column">
+        <div class="ui inverted vertical menu archive">
+            <p>Archive</p>        
+            <% blogs.forEach(function(blog){ %>
+            <a href="/blogs/<%= blog._id %>" class="item">
+                <%=blog.title%>
+            </a>
+            <% }) %>
+        </div>
+  </div>
 
-<% blogs.forEach(function(blog){ %>
-    <div>
-        <h2><%= blog.title%></h2>
-        <img src="<%= blog.image%>">
-        <span><%= blog.created %></span>
-        <p><%= blog.body %></p>
-    </div>
-<% }) %>
-    <div class="archive">
-        <h1>ARCHIVE</h1>
-        <% blogs.forEach(function(blog){ %>
-        <ul>
-            <li><%=blog.title%></li>
-        </ul>
-    </div>
-<% }) %>
+  <div class="twelve wide column">
+      <div class="ui divided items">
+          <% blogs.forEach(function(blog){ %>
+            <div class="twelve wide column centered blogPost">
+              <h3><a class="header" href="/blogs/<%= blog._id %>"><%= blog.title%></a></h3>
+              <div class="meta">
+                          <span><%= blog.created.toDateString() %></span>
+              </div>
+              <div class="item">
+                <div class="ui medium image">
+                  <img src="<%= blog.image%>">
+                </div>
+                <div class="content">
+                  <!--<a class="header" href="/blogs/<%= blog._id %>"><%= blog.title%></a>-->
+                    <div class="description">
+                          <p><%- blog.body.substring(0,100) %>....</p>
+                    </div>
+                  <div class="extras">
+                        <a class="ui floated basic violet read button" href="/blogs/<%= blog._id %>">
+                          Read More
+                          <i class="right chevron icon"></i>
+                        </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+      </div>
+  </div>
+</div>
+
 <% include ./partials/footer %>
+
+<!--<div class="ui vertical inverted menu archive">-->
+<!--  <div class="item">-->
+<!--    <div class="ui input"><input type="text" placeholder="Search..."></div>-->
+<!--  </div>-->
+<!--    <div class="menu">-->
+<!--      <a class="item">New Post</a>-->
+<!--      <a class="item">Remove Post</a>-->
+<!--    </div>-->
+<!--  <a class="item">-->
+<!--    Something Else-->
+<!--  </a>-->
+<!--  <div class="ui dropdown item">-->
+<!--    Archive-->
+<!--    <i class="dropdown icon"></i>-->
+<!--    <div class="menu">-->
+<!--        <% blogs.forEach(function(blog){ %>-->
+<!--            <a class="item">-->
+<!--                <%=blog.title%>-->
+<!--            </a>-->
+<!--        <% }) %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
