@@ -17,9 +17,11 @@
       <div class="ui divided items">
           <% blogs.forEach(function(blog){ %>
             <div class="twelve wide column centered blogPost">
+              <div class="blogPostTitle">
               <h3><a class="header" href="/blogs/<%= blog._id %>"><%= blog.title%></a></h3>
+              </div>
               <div class="meta">
-                          <span><%= blog.created.toDateString() %></span>
+                  <span id="date"><%= blog.created.toDateString() %></span>
               </div>
               <div class="item">
                 <div class="ui medium image">
@@ -31,7 +33,7 @@
                           <p><%- blog.body.substring(0,100) %>....</p>
                     </div>
                   <div class="extras">
-                        <a class="ui floated basic violet read button" href="/blogs/<%= blog._id %>">
+                        <a class="ui floated inverted black tiny button" href="/blogs/<%= blog._id %>">
                           Read More
                           <i class="right chevron icon"></i>
                         </a>
